@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Awi Admin-<%=title%></title>
+    <meta charset="utf-8">
+    <meta name="description" content="Aplikasi AWI Realtime Lelang Menggunakan Framework ExpressJS dan Realtime Database Firebase">
+    <meta name="author" content="Muhammad Abubakar Siddiq - MAS Abbe">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel='stylesheet' href='/stylesheets/admin/login.css'/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin/font-awesome.min.css">
+    <link rel='stylesheet' type="text/css" href='/stylesheets/flexslider.css' />
+    <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/responsiveslides.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="profile">
+          <button class="profile__avatar" id="btn_avatar">
+            <img src="/images/avatar.png" alt="Avatar" />
+          </button>
+        <div class="profile__form">
+          <div class="profile__fields">
+          <h3 class="text-center">Welcome Admin Lelang</h3>
+            <form>
+              <div class="fields">
+                <input type="text" class="input" required-pattern=.*\S.* id="username" placeholder="Username" />
+                <label class="label" for="fieldUsername">Username</label>
+              </div>
+              <div class="fields">
+                <input type="password" class="input" required-pattern=.*\S.* id="password" placeholder="password" />
+                <label class="label" for="fieldPassword">Password</label>
+              </div>
+              <div class="alert alert-warning" id="warning">
+                <em class="fa fa-lg fa-warning">&nbsp;</em>Peringatan, username atau password salah
+              </div>
+              <div class="profile__footer">
+                <center>
+                  <button class="btn" id="btn-submit">LOG IN</button>
+                </center>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src = "/javascripts/admin/login.js"></script>
+    <script type="text/javascript" src = "/javascripts/admin/auth-login.js"></script>
+  </body>
+</html>
