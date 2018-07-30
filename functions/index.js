@@ -14,7 +14,7 @@ app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-app.get('/time', (req, res)=>{
+app.get('/', (req, res)=>{
 	res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
 	res.render('index')
 });
