@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Awi Admin-<%=title%></title>
+    <meta charset="utf-8">
+    <meta name="description" content="Aplikasi AWI Realtime Lelang Menggunakan Framework ExpressJS dan Realtime Database Firebase">
+    <meta name="author" content="Muhammad Abubakar Siddiq - MAS Abbe">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin/styles.css"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src = "/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src = "/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/responsiveslides.min.js"></script>
+  </head>
+  <body>
+    <%include navigasi%>
+      <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <div class="profile-sidebar">
+            <div class="profile-userpic">
+              <img src="/images/avatar.png" class="img-responsive" alt="">
+            </div>
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">Username</div>
+              <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="divider"></div>
+        <ul class="nav menu">
+            <li class="parent active">
+              <a href="/admin/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a>
+            </li>
+            <li class="parent">
+              <a data-toggle="collapse" href="#sub-item-1">
+              <em class="fa fa-star">&nbsp;</em> Barang <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+              </a>
+              <ul class="children collapse" id="sub-item-1">
+                <li>
+                  <a class="" href="/admin/barang">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Stok Barang
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="/admin/barang-lelang">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Stok Barang Lelang
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="/admin/barang-terjual">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Stok Barang Terjual
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent ">
+              <a data-toggle="collapse" href="#sub-item-2">
+              <em class="fa fa-users">&nbsp;</em> Pengguna <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+              </a>
+              <ul class="children collapse" id="sub-item-2">
+                <li>
+                  <a class="" href="/admin/user-admin">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Pengguna Admin
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="user-umum">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Pengguna Umum
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="user-peserta">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Pengguna Peserta Lelang
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent ">
+              <a data-toggle="collapse" href="#sub-item-3">
+              <em class="fa fa-calendar">&nbsp;</em> Lelang <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+              </a>
+              <ul class="children collapse" id="sub-item-3">
+                <li>
+                  <a class="" href="/admin/jadwal-lelang">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Jadwal Lelang
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="laporan-lelang">
+                  <span class="fa fa-arrow-right">&nbsp;</span> Laporan Lelang
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/admin/login"><em class="fa fa-power-off">&nbsp;</em> Logout</a>
+            </li>
+        </ul>
+      </div>
+    <!--/.sidebar-->
+    <%include main%>
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/admin/chart.min.js"></script>
+    <script src="/javascripts/admin/chart-data.js"></script>
+    <script src="/javascripts/admin/easypiechart.js"></script>
+    <script src="/javascripts/admin/easypiechart-data.js"></script>
+    <script src="/javascripts/admin/bootstrap-datepicker.js"></script>
+    <script src="/javascripts/admin/custom.js"></script>
+  </body>
+</html>
