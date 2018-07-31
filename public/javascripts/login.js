@@ -1,9 +1,15 @@
-/* Simple VanillaJS to toggle class */
-document.getElementById('btn_avatar').addEventListener('click', 
-	function () {
-		[].map.call(document.querySelectorAll('.profile'),
-			function(el) {
-				el.classList.toggle('profile--open');
-			});
+(function () {
+	'usestrict';
+
+	angular.module("myAdmin").controller('loginCtrl', function($scope, $http){
+		$scope.login = function() {
+        	$http.post('/admin/',{useremail:$scope.userEmail, userpassword:$scope.userPassword}).
+        		then(function(response) {
+            	console.log("posted successfully");
+            	window.location.href="/admin/home";
+        	}).catch(function(response) {
+            	console.error("error in posting");
+        	})
+    	}	
 	}
-);
+)();

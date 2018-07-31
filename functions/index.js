@@ -4,7 +4,7 @@ const express	= require('express');
 const engines	= require('consolidate');
 const path   	= require('path');
 const session 	= require('express-session');
-const body 		= require('body-parser');
+const bodyParser = require('body-parser');
 
 const app		= express();
 
@@ -18,6 +18,8 @@ app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing
 
 app.get('/admin/', (req, res)=>{
 	res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
@@ -25,8 +27,8 @@ app.get('/admin/', (req, res)=>{
 });
 
 app.post('/admin/', (req, res)=>{
-	var useremail = req.body.username;
-	var userpassword  = req.body.userpass;
+	var useremail = req.body.userEmail;
+	var userpassword  = req.body.userPassword;
 
 	admin.auth().signInWithEmailAndPassword(useremail, userpassword)
 	.then(function () {

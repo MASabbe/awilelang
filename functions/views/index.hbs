@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myAdmin">
+<html lang="en" >
   <head>
     <title>Awi Admin</title>
     <meta charset="utf-8">
@@ -9,13 +9,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel='stylesheet' href='/stylesheets/login.css'/>
     <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css">>
-    <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src = "/javascripts/bootstraps/bootstrap.min.js"></script>
-    <script type="text/javascript" src = "/javascripts/angular/angular.min.js"></script>
-    <script type="text/javascript" src = "/javascripts/angular-route/angular-route.min.js"></script>
-
   </head>
-  <body>
+  <body ng-app="myAdmin">
     <div class="container">
       <div class="profile">
           <button class="profile__avatar" id="btn_avatar">
@@ -24,13 +19,13 @@
         <div class="profile__form">
           <div class="profile__fields">
           <h3 class="text-center">Welcome Admin Lelang</h3>
-            <form>
+            <form name="login-form" role="form" ng-controller="loginCtrl">
               <div class="fields">
-                <input type="text" class="input" required-pattern=.*\S.* id="username" placeholder="Username" />
+                <input type="text" class="input" required-pattern=.*\S.* id="username" placeholder="Username" ng-model="userEmail"/>
                 <label class="label" for="fieldUsername">Username</label>
               </div>
               <div class="fields">
-                <input type="password" class="input" required-pattern=.*\S.* id="password" placeholder="password" />
+                <input type="password" class="input" required-pattern=.*\S.* id="password" placeholder="password" ng-model="userPassword"/>
                 <label class="label" for="fieldPassword">Password</label>
               </div>
               <div class="alert alert-warning" id="warning">
@@ -38,7 +33,7 @@
               </div>
               <div class="profile__footer">
                 <center>
-                  <button class="btn" id="btn-submit">LOG IN</button>
+                  <button class="btn" id="btn-submit" ng-click="login()">LOG IN</button>
                 </center>
               </div>
             </form>
@@ -46,7 +41,20 @@
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('btn_avatar').addEventListener('click', 
+        function () {
+          [].map.call(document.querySelectorAll('.profile'),
+          function(el) {
+            el.classList.toggle('profile--open');
+          });
+        }
+      );
+    </script>
+    <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/bootstraps/bootstrap.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-resource.min.js"></script>
     <script type="text/javascript" src = "/javascripts/login.js"></script>
-    <script type="text/javascript" src = "/javascripts/admin.js"></script>
   </body>
 </html>
