@@ -19,16 +19,20 @@
         <div class="profile__form">
           <div class="profile__fields">
           <h3 class="text-center">Welcome Admin Lelang</h3>
-            <form name="login-form" role="form" ng-controller="loginCtrl">
+            <form name="login-form" role="form" ng-controller="loginCtrl" novalidate>
               <div class="fields">
-                <input type="text" class="input" required-pattern=.*\S.* id="username" placeholder="Username" ng-model="userEmail"/>
-                <label class="label" for="fieldUsername">Username</label>
+                <input type="text" class="input" placeholder="Username" ng-model="user.email" required/>
+                <span style="color:red" ng-show="login-form.email.$dirty && login-form.user.$invalid">
+                  <span ng-show="login-form.email.$error.required">Username is required.</span>
+                </span>
               </div>
               <div class="fields">
-                <input type="password" class="input" required-pattern=.*\S.* id="password" placeholder="password" ng-model="userPassword"/>
-                <label class="label" for="fieldPassword">Password</label>
+                <input type="password" class="input" required-pattern=.*\S.* placeholder="password" ng-model="user.password"/>
+                <span style="color:red" ng-show="login-form.password.$dirty && login-form.user.$invalid">
+                  <span ng-show="login-form.password.$error.required">Password is required.</span>
+                </span>
               </div>
-              <div class="alert alert-warning" id="warning">
+              <div class="alert alert-warning" ng-show="login-form.email.$error.email">
                 <em class="fa fa-lg fa-warning">&nbsp;</em>Peringatan, username atau password salah
               </div>
               <div class="profile__footer">

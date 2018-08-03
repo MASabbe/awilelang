@@ -27,13 +27,10 @@ app.get('/admin/', (req, res)=>{
 });
 
 app.post('/admin/', (req, res)=>{
-	var useremail = req.body.userEmail;
-	var userpassword  = req.body.userPassword;
-
-	admin.auth().signInWithEmailAndPassword(useremail, userpassword)
-	.then(function () {
-		res.send("success");
-		console.log("success login admin".useremail);
+	admin.auth().signInWithEmailAndPassword(req.body.userEmail, req.body.userPassword)
+	.then(function (user) {
+		res.render('/admin/home');
+		console.log("success login admin".user.uid);
 	})
 	.catch(function(err){
 		res.send("fail");

@@ -3,15 +3,14 @@
 "the initialize angular module"
     angular.module("myAdmin",[]).controller('loginCtrl', function($scope, $http){
         $scope.login = function() {
-            $http.post('/admin/',{useremail:$scope.userEmail, userpassword:$scope.userPassword}).
-                then(function(response) {
-                console.log("posted successfully");
-                window.location.href="/admin/home";
-            }).catch(function(response) {
-                console.error("error in posting");
-            })
+        	var userEmail = $scope.user.email;
+        	var userPassword = $scope.user.password;
+
+            $http.post('/admin/',{useremail:userEmail, userpassword:userPassword}, function(res) {
+            	if (res==='fail') {
+            		
+            	}
+            });   
         }   
-    }
-)
-}) // <- theses bracket and parenthesis are missing
-();
+    })
+})();

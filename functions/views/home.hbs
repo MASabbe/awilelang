@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Awi Lelang-<%= title %></title>
+    <title>Awi Lelang</title>
     <meta charset="utf-8">
     <meta name="description" content="Aplikasi AWI Realtime Lelang Menggunakan Framework ExpressJS dan Realtime Database Firebase">
     <meta name="author" content="Muhammad Abubakar Siddiq - MAS Abbe">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
-    <link rel='stylesheet' type="text/css" href='/stylesheets/styles.css' media="all"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css"/>
     <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src = "/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "/javascripts/bootstraps/bootstrap.min.js"></script>
     <script type="applicatoin/x-javascript">
       addEventListener("load", function(){setTimeout(hideURLbar, 0);},false);
       function hideURLbar(){window.scrollTo(0,1);}
@@ -19,7 +20,133 @@
   <body>
   	<div class="container">
       <div class="layout">
-          <%include header%>
+          <div id="header">
+            <div class="header-left">
+              <div class="logo">
+                <a href="/"><img src="/images/logo.png" style="width:20%"></a>
+                <p>Welcome to Awi Lelang</p>
+              </div>
+            </div>
+            <div class="social-icons">
+              <ul>
+                <li><a href="#"><i class="twitter"></i></a></li>
+                <li><a href="#"><i class="facebook"></i></a></li>
+                <li><a href="#"><i class="rss"></i></a></li>
+              </ul>
+            </div>
+            <div class='header-right'>
+            <div class='top-menu'>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/jadwal">Jadwal Lelang</a></li>
+                <li><a href="/syarat">Syarat Ketentuan</a></li>
+                <li><a href="/about">Tentang Awi</a></li>
+                <li>
+                  <a href="#modal" id="modal_trigger">Login</a>
+                  <div id="modal" class="popupContainer" style="display:none">
+
+                  <header class="popupHeader">      
+                    <span class="header_title">Login</span>
+                    <span class="modal_close"><i class="fa fa-times"></i></span>
+                  </header>
+
+                  <section class="popupBody">
+                    <!-- Social Login -->
+                    <div class="social_login">
+                      <div class="Social_icon">
+                        <a href="#" class="social_box fb">
+                          <span class="icon"><i class="fa fa-facebook"></i></span>
+                          <span class="icon_title">Connect with Facebook</span>
+                        </a>
+                        <a href="#" class="social_box google">
+                          <span class="icon"><i class="fa fa-google-plus"></i></span>
+                          <span class="icon_title">Connect with Google</span>
+                        </a>
+                      </div>
+                      <div class="centeredText">
+                        <span>Or use your Email address</span>
+                      </div>
+                      <div class="action_btns">
+                        <div class="one_half">
+                          <a href="#" id="login_form" class="btn">Login</a>
+                        </div>
+                        <div class="one_half last">
+                          <a href="#" id="register_form" class="btn">Sign up</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Username & Password Login form -->
+                    <div class="user_login">
+                    </br>
+                      <form>
+                        <label>Email / Username</label>
+                        <input type="text" name="user"/>
+                        <label>Password</label>
+                        <input type="password" name="password"/>
+                        <div class="action_btns">
+                          <div class="one_half">
+                            <a href="#" id="login_form" class="btn back_btn">
+                              <i class="fa fa-angle-double-left"></i>Back
+                            </a>
+                          </div>
+                          <div class="one_half last">
+                            <a href="#" id="login_form" class="btn btn_red">Login</a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="user_register">
+                      <form>
+                        <label>Full Name</label>
+                        <input type="text" name="member_username" />
+                        <label>Email Address</label>
+                        <input type="email" name="member_email" />
+                        <label>Password</label>
+                        <input type="password" name="member_password" />
+                        <div class="action_btns">
+                          <div class="one_half">
+                            <a href="#" id="login_form" class="btn back_btn">
+                              <i class="fa fa-angle-double-left"></i>Back
+                            </a>
+                          </div>
+                          <div class="one_half last">
+                            <a href="#" id="login_form" class="btn btn_red">Register</a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </section>
+                </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class='search'>
+              <form>
+                <input type='text' value='' onfocus='this.value = '''; onblur='if (this.value == '') { this.value = '';}'/>
+                <input type='submit' value=''>
+              </form>
+            </div>
+          </div>
+
+            <div class='clearfix'></div>
+          <span class='menu'></span>
+          <div class='menu-strip'>
+            <ul>
+              <li><a href='/katalog'>PC & Laptop</a></li>
+              <li><a href='/katalog'>Handphone</a></li>
+              <li><a href='/katalog'>Camera</a></li>
+              <li><a href='/katalog'>Motor</a></li>
+              <li><a href='/katalog'>Lain-lain</a></li>
+            </ul>
+          </div>
+          
+          <div class='clearfix'></div>
+            </div>
+
             <div class="clearfix"></div>
             <div class="main-content">
             <!--bagian slider-->
@@ -28,7 +155,7 @@
                   <div class="confrence-slider">
                     <ul class="confrence-rslider rslides" id="confrence-slider">
                       <li>
-                        <a href="#"><img src="/images/slider.png"></a>
+                        <a href="#"><img src="/images/slider.png" style=" width: 100%; height: auto;"></a>
                       </li>
                     </ul>
                   </div>
@@ -116,9 +243,47 @@
               
               <div class="clearfix"></div>
             </div>
-          <%include footer%>
-      </div>	
+          <div id = 'footer'>
+            <div class='footer text-center'>
+              <div class='bottom-menu'>
+                <ul>              
+                  <li><a href='/'>Home</a></li> |
+                  <li><a href='#'>Tentang Developer</a></li>          
+                </ul>
+              </div>
+              <div class='copyright text-center'>
+                <p>Awi Gadai & Lelang Yogyakarta &copy; 2017 All rights reserved | Design by  <a href='#'>@mas.abbe</a></p>
+              </div>
+            </div>
+          </div>
+          </div>	
   	</div>
-
+    <script type="text/javascript" src="/javascripts/lumino.glyphs.js"></script>
+    <script type="text/javascript" src="/javascripts/html5shiv.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.leanModal.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="/javascripts/login-popup.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.popup-with-zoom-anim').magnificPopup({
+          type: 'inline',
+          fixedContentPos: false,
+          overflowY: 'auto',
+          closeBtnInside: true,
+          preloader: false,
+          midClick: true,
+          removeDelay: 300,
+          mainClass: 'my-mfp-zoom-in'
+        });
+      });
+    </Script>
+    <!-- script for menu -->
+    <script>
+      $( 'span.menu' ).click(function() {
+        $( '.menu-strip' ).slideToggle( 'slow', function() {
+        // Animation complete.
+        });
+      });
+    </script>
   </body>
 </html>
