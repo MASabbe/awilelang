@@ -1,17 +1,19 @@
-const functions = require('firebase-functions');
-const admin		= require('firebase-admin');
-const express	= require('express');
-const engines	= require('consolidate');
-const path   	= require('path');
-const session 	= require('express-session');
-const bodyParser = require('body-parser');
+const functions 		= require('firebase-functions');
+const admin				= require('firebase-admin');
+const express			= require('express');
+const engines			= require('consolidate');
+const path   			= require('path');
+const session 			= require('express-session');
+const bodyParser 		= require('body-parser');
+const serviceAccount 	= require('./service_account.json');
 
 const app		= express();
 
-const firebaseApp	= admin.initializeApp(
-	functions.config().admin
-);
-
+const firebaseApp	= admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount)
+});
+const uid = "awi-admin";
+const additional = {administrator : true};
 const HTTP_SERVER_ERROR = 500;
 
 app.engine('hbs', engines.handlebars);
@@ -27,15 +29,17 @@ app.get('/admin/', (req, res)=>{
 });
 
 app.post('/admin/', (req, res)=>{
-	admin.auth().signInWithEmailAndPassword(req.body.userEmail, req.body.userPassword)
-	.then(function (user) {
-		res.render('/admin/home');
-		console.log("success login admin".user.uid);
+	console.log('post login '+req.body.uid);
+	
+	admin.auth().getUser(req.body.uid)
+	.then(function(userRecord) {
+	// See the UserRecord reference doc for the contents of userRecord.
+	console.log("Successfully fetched user data:", userRecord.toJSON());
 	})
-	.catch(function(err){
-		res.send("fail");
-		console.log("Error while executing firebase.auth() ",err);
+	.catch(function(error) {
+	console.log("Error fetching user data:", error);
 	});
+
 });
 
 app.get('/admin/home', (req, res)=>{
@@ -53,7 +57,6 @@ app.use(function(err, req, res, next) {
   if (res.headersSent) {
     return next(err);
   }
-
   return res.status(err.status || HTTP_SERVER_ERROR).render('500');
 });
 exports.app = functions.https.onRequest(app);

@@ -55,10 +55,30 @@
         }
       );
     </script>
+    <!-- JQuery -->
     <script type="text/javascript" src = "/javascripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src = "/javascripts/bootstraps/bootstrap.min.js"></script>    
+    <!-- Bootstrap -->
+    <script type="text/javascript" src = "/javascripts/bootstraps/bootstrap.min.js"></script>
+    <!-- AngularJS-->    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-resource.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey            : "AIzaSyDpUBV22Huscn6XfAF2Td2Ot4A_edEx71A",
+        authDomain        : "awirealtimelelang.firebaseapp.com",
+        databaseURL       : "https://awirealtimelelang.firebaseio.com",
+        projectId         : "awirealtimelelang",
+        storageBucket     : "awirealtimelelang.appspot.com",
+        messagingSenderId : "279363412175"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src = "/javascripts/authService.js"></script>
     <script type="text/javascript" src = "/javascripts/login.js"></script>
   </body>
 </html>
